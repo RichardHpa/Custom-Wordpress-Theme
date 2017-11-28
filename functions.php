@@ -155,6 +155,40 @@ function newTheme_footer_text($wp_customize){
 }
 add_action('customize_register', 'newTheme_footer_text');
 
+function programmes_init() {
+    $labels = array(
+        'name'               => _x( 'Programmes', 'post type general name' ),
+        'singular_name'      => _x( 'Programme', 'post type singular name' ),
+        'menu_name'          => _x( 'Programmes', 'admin menu' ),
+        'name_admin_bar'     => _x( 'Programme', 'add new on admin bar' ),
+        'add_new'            => _x( 'Add New Programme', 'programme' ),
+        'add_new_item'       => __( 'Add New Programme' ),
+        'new_item'           => __( 'New Programme' ),
+        'edit_item'          => __( 'Edit Programme' ),
+        'view_item'          => __( 'View Programme' ),
+        'all_items'          => __( 'All Programmes' ),
+        'search_items'       => __( 'Search Programmes' ),
+        'parent_item_colon'  => __( 'Parent Programmes:' ),
+        'not_found'          => __( 'No Programme found.' ),
+        'not_found_in_trash' => __( 'No Programme found in Trash.' )
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'show_ui' => true,
+        'capability_type' => 'post',
+        'hierarchical' => false,
+        'rewrite' => array('slug' => 'Programmes'),
+        'query_var' => true,
+        'menu_icon' => 'dashicons-clipboard',
+        'supports' => array(
+            'title',
+            'editor',
+            'thumbnail',),
+        );
+    register_post_type( 'programmes', $args );
+}
+add_action( 'init', 'programmes_init' );
 
 
 
