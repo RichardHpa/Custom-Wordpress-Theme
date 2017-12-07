@@ -29,8 +29,7 @@
 				// $programmes = new WP_Query("type=post&category_name=$category");
 
 				$parms = array(
-					'type'=>'post',
-					'category_name'=>$category,
+					'post_type'=>'programmes',
 					'posts_per_page' => 2
 				);
 				$programmes = new WP_Query($parms);
